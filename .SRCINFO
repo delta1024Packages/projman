@@ -1,6 +1,6 @@
-pkgbase = projman-git
+pkgbase = projman
 	pkgdesc = A simple tui project manager
-	pkgver = r13.275ebc1
+	pkgver = 0.1.0
 	pkgrel = 1
 	url = https://github.com/delta1024/projman
 	arch = x86_64
@@ -9,8 +9,9 @@ pkgbase = projman-git
 	makedepends = go
 	provides = projman
 	conflicts = projman
+	replaces = projman-git
 	options = !debug
-	source = git+https://github.com/delta1024/projman
+	source = https://github.com/delta1024/projman/archive/refs/tags/v0.1.0.tar.gz
 	sha256sums = SKIP
 
-pkgname = projman-git
+pkgname = projman

@@ -1,38 +1,34 @@
 # Maintainer: Your Name <youremail@domain.com>
-pkgname=projman-git 
-pkgver=r13.275ebc1
+pkgname=projman 
+pkgver=0.1.0
 pkgrel=1
 pkgdesc="A simple tui project manager"
 arch=(x86_64)
 url="https://github.com/delta1024/projman"
 license=('none')
 makedepends=('git' 'go') # 'bzr', 'git', 'mercurial' or 'subversion'
-provides=("${pkgname%-git}")
-conflicts=("${pkgname%-git}")
+provides=("${pkgname}")
+conflicts=("${pkgname}")
+replaces=("${pkgname}-git")
 options=(!debug)
-source=('git+https://github.com/delta1024/projman')
+source=("https://github.com/delta1024/${pkgname}/archive/refs/tags/v${pkgver}.tar.gz")
 sha256sums=('SKIP')
 
 
-pkgver() {
-	cd "$srcdir/${pkgname%-git}"
-	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
-}
-
 prepare() {
-	cd "$srcdir/${pkgname%-git}"
+	cd "${pkgname}-${pkgver}"
 }
 
 build() {
-	cd "$srcdir/${pkgname%-git}"
+	cd "${pkgname}-${pkgver}"
 	go build
 }
 
 check() {
-	cd "$srcdir/${pkgname%-git}"
+	cd "${pkgname}-${pkgver}"
 }
 
 package() {
-	cd "$srcdir/${pkgname%-git}"
-	install -Dm755 ${pkgname%-git} "$pkgdir/usr/bin/${pkgname%-git}" 
+	cd "${pkgname}-${pkgver}"
+	install -Dm755 ${pkgname} "$pkgdir/usr/bin/${pkgname}" 
 }
