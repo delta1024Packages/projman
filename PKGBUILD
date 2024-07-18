@@ -1,12 +1,12 @@
 # Maintainer: Your Name <youremail@domain.com>
 pkgname=projman 
-pkgver=0.1.1
+pkgver=0.1.2
 pkgrel=1
 pkgdesc="A simple tui project manager"
 arch=(x86_64)
 url="https://github.com/delta1024/projman"
-license=('none')
-makedepends=('git' 'go') # 'bzr', 'git', 'mercurial' or 'subversion'
+license=('MIT')
+makedepends=('go') 
 provides=("${pkgname}")
 conflicts=("${pkgname}")
 replaces=("${pkgname}-git")
@@ -21,7 +21,7 @@ prepare() {
 
 build() {
 	cd "${pkgname}-${pkgver}"
-	go build
+	go build -ldflags "-s -w"
 }
 
 check() {
