@@ -1,6 +1,6 @@
 # Maintainer: Your Name <youremail@domain.com>
 pkgname=projman-git 
-pkgver=r4.77567d1
+pkgver=r13.275ebc1
 pkgrel=1
 pkgdesc="A simple tui project manager"
 arch=(x86_64)
